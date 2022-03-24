@@ -190,8 +190,8 @@ i7=0; i7f=0; i7f_set=i7f #not used
 # もろもろのはじまり、まず電源を落としてから始める。
 All_shutdown()
 
-#time_x=[0]*10   # x axis
-data_y=[0]*10   # y axis
+#time_x=[0]*1000   # x axis
+data_y=[0]*1000   # y axis
 while os.path.exists('going.txt'):
 	try:
 		array=read_m5(port,speed) #reading thermo_cpuple, tc_reader 
@@ -213,11 +213,11 @@ while os.path.exists('going.txt'):
 			
 			""" plotting """
 			#plotting 
-			time_x=range(0, 10, 1)
+			time_x=range(0, 1000, 1)
 			plt.clf()
 			data_y.pop(-1)
 			data_y.insert(0,d2)
-			plt.ylim(0,20)
+			plt.ylim(0,5)
 			plt.plot(time_x,data_y)
 			plt.pause(0.01)
 		
